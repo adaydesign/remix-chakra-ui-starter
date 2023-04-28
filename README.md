@@ -2,6 +2,17 @@
 
 - [Remix Docs](https://remix.run/docs)
 
+---
+
+Remix - version 1.15.0
+
+Chakra UI - version 2.6.0
+
+React - version 18.0.35
+
+---
+
+
 ## Development
 
 From your terminal:
