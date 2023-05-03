@@ -14,6 +14,7 @@ import { V2_MetaFunction, LinksFunction } from "@remix-run/node" // Depends on t
 
 import { ServerStyleContext, ClientStyleContext } from "./context"
 import PublicLayout from "./layout/PublicLayout"
+import { theme } from "./styles/theme"
 
 export const meta: V2_MetaFunction = () => {
   return [
@@ -35,7 +36,7 @@ export let links: LinksFunction = () => {
     { rel: "preconnect", href: "https://fonts.gstatic.com" },
     {
       rel: "stylesheet",
-      href: "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap",
+      href: "https://fonts.googleapis.com/css2?family=Prompt:wght@100;300;400;500;600;700;800&display=swap",
     },
   ]
 }
@@ -92,7 +93,7 @@ const Document = withEmotionCache(
 export default function App() {
   return (
     <Document>
-      <ChakraProvider>
+      <ChakraProvider  theme={theme}>
         <PublicLayout>
           <Outlet />
         </PublicLayout>
