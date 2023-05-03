@@ -12,6 +12,20 @@ React - version 18.0.35
 
 ---
 
+### support Docker
+
+- build and run -d
+
+```
+$ docker compose up --build -d
+```
+
+- run -d
+
+```
+$ docker compose up -d
+```
+
 
 ## Development
 
