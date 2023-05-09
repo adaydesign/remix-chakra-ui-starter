@@ -13,8 +13,8 @@ import {
 import { V2_MetaFunction, LinksFunction } from "@remix-run/node" // Depends on the runtime you choose
 
 import { ServerStyleContext, ClientStyleContext } from "./context"
-import PublicLayout from "./layout/PublicLayout"
 import { theme } from "./styles/theme"
+import { PublicLayout, CatchErrorLayout } from "~/layout"
 
 export const meta: V2_MetaFunction = () => {
   return [
@@ -80,7 +80,7 @@ const Document = withEmotionCache(
           ))}
         </head>
         <body>
-          {children}
+          <ChakraProvider theme={theme}>{children}</ChakraProvider>
           <ScrollRestoration />
           <Scripts />
           <LiveReload />
@@ -93,11 +93,17 @@ const Document = withEmotionCache(
 export default function App() {
   return (
     <Document>
-      <ChakraProvider  theme={theme}>
-        <PublicLayout>
-          <Outlet />
-        </PublicLayout>
-      </ChakraProvider>
+      <PublicLayout>
+        <Outlet />
+      </PublicLayout>
+    </Document>
+  )
+}
+
+export function ErrorBoundary() {
+  return (
+    <Document>
+      <CatchErrorLayout />
     </Document>
   )
 }
